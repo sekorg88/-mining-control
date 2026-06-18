@@ -1,9 +1,9 @@
-[README.md](https://github.com/user-attachments/files/29019625/README.md)
+[Uploading README.md…]()
 # ⚡ Mining Control
 
 <div align="center">
 
-![Mining Control](https://img.shields.io/badge/version-1.0.0-00e5ff?style=for-the-badge)
+![Mining Control](https://img.shields.io/badge/version-1.0.1-00e5ff?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/platform-Windows-39ff14?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-bf5af2?style=for-the-badge)
 ![Dev Fee](https://img.shields.io/badge/dev%20fee-1%25-ffd60a?style=for-the-badge)
@@ -19,6 +19,13 @@
 
 ---
 
+## 🆕 What's new in v1.0.1 / Что нового в v1.0.1
+
+- 🔒 **Web interface password protection** — the remote web panel now requires a password to access. A random password is generated on first launch and can be changed anytime in Settings.
+- 🔒 **Защита веб-интерфейса паролем** — удалённая веб-панель теперь требует пароль для доступа. При первом запуске генерируется случайный пароль, который можно изменить в любой момент в Настройках.
+
+---
+
 ## 🇬🇧 English
 
 ### 🚀 Features
@@ -30,7 +37,7 @@
 | 📊 **Earnings chart** | Profitability history: 1h / 6h / 24h / 30 days |
 | 🎛️ **MSI Afterburner** | Auto-apply GPU overclocking profiles per coin |
 | 📡 **Pool statistics** | Balance, payouts, hashrate directly in the interface |
-| 📱 **Web interface** | Remote access from phone/PC via `192.168.1.xxx:8765` |
+| 📱 **Web interface** | Remote access from phone/PC via `192.168.1.xxx:8765`, password-protected |
 | 🎨 **3 Themes** | Neon / Apple / Glass Dark |
 | 🌍 **5 Languages** | EN / RU / ZH / VI / PT |
 | 💰 **Dev fee 1%** | Standard practice, honest and transparent |
@@ -141,7 +148,7 @@ to:
 | 📊 **График доходности** | История доходности: 1ч / 6ч / 24ч / 30 дней |
 | 🎛️ **MSI Afterburner** | Авто-применение профилей разгона GPU для каждой монеты |
 | 📡 **Статистика пулов** | Баланс, выплаты, хешрейт прямо в интерфейсе |
-| 📱 **Веб-интерфейс** | Доступ с телефона/ПК по `192.168.1.xxx:8765` |
+| 📱 **Веб-интерфейс** | Доступ с телефона/ПК по `192.168.1.xxx:8765`, защищён паролем |
 | 🎨 **3 темы** | Neon / Apple / Glass Dark |
 | 🌍 **5 языков** | EN / RU / ZH / VI / PT |
 | 💰 **Dev fee 1%** | Стандартная практика, честно и прозрачно |
@@ -250,6 +257,6 @@ MIT License — free to use, but keep the author mention.
 
 <div align="center">
 
-*Mining Control v1.0.0 · Dev fee 1% · Made with ❤️ by sekorg88*
+*Mining Control v1.0.1 · Dev fee 1% · Made with ❤️ by sekorg88*
 
 </div>
