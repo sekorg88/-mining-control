@@ -25,7 +25,6 @@
 - 🔑 **EPIC automatic stats (optional)** — you can now link your own EpicMine API key/secret (Settings → EPIC API) to get live balance stats. Without it, EPIC still mines normally, just without auto-stats.
 - 🔴 **New-payout indicators** — each coin in the "Total" panel now shows a small pulsing dot when the pool actually sends you a new payout. It clears when you manually refresh.
 - 🔄 **Auto-refresh every minute** — pool balances now update automatically in the background, no need to click Refresh constantly.
-- 🛡️ **Corrected a misconfigured dev-fee wallet** for NEXA.
 
 <br>
 
@@ -34,7 +33,7 @@
 - 🔑 **Автостатистика EPIC (опционально)** — теперь можно привязать свой личный API-ключ/секрет от EpicMine (Настройки → EPIC API) для получения баланса в реальном времени. Без ключа EPIC всё так же майнит нормально, просто без автостатистики.
 - 🔴 **Индикаторы новых начислений** — каждая монета в разделе "Итого" теперь показывает мигающую точку, когда пул реально прислал новую выплату. Гаснет при ручном обновлении.
 - 🔄 **Автообновление раз в минуту** — баланс пулов теперь обновляется сам в фоне, не нужно постоянно жать "Обновить".
-- 🛡️ **Исправлен неверно настроенный dev-fee кошелёк** для NEXA.
+
 
 ---
 
