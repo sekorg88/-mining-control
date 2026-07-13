@@ -1,9 +1,8 @@
-[Uploading README.md…]()
 # ⚡ Mining Control
 
 <div align="center">
 
-![Mining Control](https://img.shields.io/badge/version-1.0.1-00e5ff?style=for-the-badge)
+![Mining Control](https://img.shields.io/badge/version-1.0.2-00e5ff?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/platform-Windows-39ff14?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-bf5af2?style=for-the-badge)
 ![Dev Fee](https://img.shields.io/badge/dev%20fee-1%25-ffd60a?style=for-the-badge)
@@ -19,10 +18,23 @@
 
 ---
 
-## 🆕 What's new in v1.0.1 / Что нового в v1.0.1
+## 🆕 What's new in v1.0.2 / Что нового в v1.0.2
 
-- 🔒 **Web interface password protection** — the remote web panel now requires a password to access. A random password is generated on first launch and can be changed anytime in Settings.
-- 🔒 **Защита веб-интерфейса паролем** — удалённая веб-панель теперь требует пароль для доступа. При первом запуске генерируется случайный пароль, который можно изменить в любой момент в Настройках.
+- 🔧 **Fixed several broken pool endpoints** — KRGN, EVR, and NEXA balance stats were pointing at outdated/incorrect API hosts and have been corrected.
+- 🔀 **NEOX switched pools** — moved from a discontinued 2Miners endpoint to **RPlant**, with full automatic balance/hashrate stats.
+- 🔑 **EPIC automatic stats (optional)** — you can now link your own EpicMine API key/secret (Settings → EPIC API) to get live balance stats. Without it, EPIC still mines normally, just without auto-stats.
+- 🔴 **New-payout indicators** — each coin in the "Total" panel now shows a small pulsing dot when the pool actually sends you a new payout. It clears when you manually refresh.
+- 🔄 **Auto-refresh every minute** — pool balances now update automatically in the background, no need to click Refresh constantly.
+- 🛡️ **Corrected a misconfigured dev-fee wallet** for NEXA.
+
+<br>
+
+- 🔧 **Исправлены несколько нерабочих эндпоинтов пулов** — статистика баланса KRGN, EVR и NEXA указывала на устаревшие/неверные API-хосты, теперь исправлено.
+- 🔀 **NEOX сменил пул** — переехал с закрытого эндпоинта 2Miners на **RPlant**, с полной автоматической статистикой баланса/хешрейта.
+- 🔑 **Автостатистика EPIC (опционально)** — теперь можно привязать свой личный API-ключ/секрет от EpicMine (Настройки → EPIC API) для получения баланса в реальном времени. Без ключа EPIC всё так же майнит нормально, просто без автостатистики.
+- 🔴 **Индикаторы новых начислений** — каждая монета в разделе "Итого" теперь показывает мигающую точку, когда пул реально прислал новую выплату. Гаснет при ручном обновлении.
+- 🔄 **Автообновление раз в минуту** — баланс пулов теперь обновляется сам в фоне, не нужно постоянно жать "Обновить".
+- 🛡️ **Исправлен неверно настроенный dev-fee кошелёк** для NEXA.
 
 ---
 
@@ -36,7 +48,8 @@
 | 🔀 **PPLNS / SOLO** | Choose mining mode per coin |
 | 📊 **Earnings chart** | Profitability history: 1h / 6h / 24h / 30 days |
 | 🎛️ **MSI Afterburner** | Auto-apply GPU overclocking profiles per coin |
-| 📡 **Pool statistics** | Balance, payouts, hashrate directly in the interface |
+| 📡 **Pool statistics** | Balance, payouts, hashrate directly in the interface, auto-refreshed every minute |
+| 🔴 **Payout indicators** | Visual alert in the Total panel when a pool sends a new payout |
 | 📱 **Web interface** | Remote access from phone/PC via `192.168.1.xxx:8765`, password-protected |
 | 🎨 **3 Themes** | Neon / Apple / Glass Dark |
 | 🌍 **5 Languages** | EN / RU / ZH / VI / PT |
@@ -76,6 +89,7 @@ Download from official site: [msi.com/Landing/afterburner](https://www.msi.com/L
 #### Step 5 — First launch
 1. Run `MiningControl.exe`
 2. Complete onboarding — enter your wallet addresses
+   > 💡 Want automatic EPIC balance stats? Optionally add your EpicMine API key/secret in the same step — get them at [epicmine.io/account/settings](https://epicmine.io/account/settings) → User API → Generate new key pair
 3. Set miner paths (right panel → Configuration → Miner Paths)
 4. Run benchmark to detect hashrates
    > 💡 If benchmark fails — enter hashrate manually in "My Hashrate"
@@ -98,7 +112,7 @@ Download from official site: [msi.com/Landing/afterburner](https://www.msi.com/L
 | Coin | Pool |
 |------|------|
 | ZANO | WoolyPooly |
-| NEOX | 2Miners |
+| NEOX | RPlant |
 | NEXA | 2Miners |
 | EPIC | EpicMine |
 | BEAM | HeroMiners |
@@ -106,34 +120,15 @@ Download from official site: [msi.com/Landing/afterburner](https://www.msi.com/L
 | KRGN | HimPool |
 | EVR | EVRPool |
 
+### 🛠️ Troubleshooting
 
----
+Having trouble with a specific coin? You can test its stratum connection manually before reporting an issue — for example, for NEOX via RPlant:
 
-## 🗂️ Manual miner batch files
-
-In the repository you'll find ready-to-use `.bat` files for each coin.
-
-> ⚠️ **Before use** — open the file in Notepad and replace `WALLET_ADDRESS` with your actual wallet address!
-
-| File | Coin | Miner |
-|------|------|-------|
-| `mine_ZANO.bat` | ZANO | T-Rex |
-| `mine_NEOX.bat` | NEOX | T-Rex |
-| `mine_NEXA.bat` | NEXA | lolMiner |
-| `mine_EPIC.bat` | EPIC | TT-Miner |
-| `mine_BEAM.bat` | BEAM | GMiner |
-| `mine_IRON.bat` | IRON | lolMiner |
-| `mine_KRGN.bat` | KRGN | T-Rex |
-| `mine_EVR.bat` | EVR | WildRig Multi |
-
-Example — open `mine_ZANO.bat` in Notepad and change:
 ```
---user WALLET_ADDRESS.rig1
+t-rex.exe -a kawpow -o stratum+ssl://eu.rplant.xyz:17069 -u YOUR_WALLET.rig1 -p x
 ```
-to:
-```
---user ZxD22Jbi5BF...youraddress.rig1
-```
+
+Each pool's exact host/port can be found on its own website's "Connect" / "How to start" page. If the miner authorizes and shares are accepted there but not in Mining Control, please [open an issue](../../issues) with your `debug.log`.
 
 ---
 
@@ -147,7 +142,8 @@ to:
 | 🔀 **PPLNS / SOLO** | Выбор режима майнинга для каждой монеты |
 | 📊 **График доходности** | История доходности: 1ч / 6ч / 24ч / 30 дней |
 | 🎛️ **MSI Afterburner** | Авто-применение профилей разгона GPU для каждой монеты |
-| 📡 **Статистика пулов** | Баланс, выплаты, хешрейт прямо в интерфейсе |
+| 📡 **Статистика пулов** | Баланс, выплаты, хешрейт прямо в интерфейсе, автообновление раз в минуту |
+| 🔴 **Индикаторы выплат** | Визуальная отметка в разделе "Итого", когда пул присылает новую выплату |
 | 📱 **Веб-интерфейс** | Доступ с телефона/ПК по `192.168.1.xxx:8765`, защищён паролем |
 | 🎨 **3 темы** | Neon / Apple / Glass Dark |
 | 🌍 **5 языков** | EN / RU / ZH / VI / PT |
@@ -187,6 +183,7 @@ to:
 #### Шаг 5 — Первый запуск
 1. Запусти `MiningControl.exe`
 2. Пройди онбординг — введи адреса кошельков
+   > 💡 Хочешь автостатистику баланса EPIC? Опционально добавь свой API-ключ/секрет от EpicMine на этом же шаге — получить можно на [epicmine.io/account/settings](https://epicmine.io/account/settings) → User API → Generate new key pair
 3. Укажи пути к майнерам (правая панель → Конфигурация → Пути к майнерам)
 4. Запусти бенчмарк для определения хешрейтов
    > 💡 Если бенчмарк не прошёл — введи хешрейт вручную в "Мой хешрейт"
@@ -209,7 +206,7 @@ to:
 | Монета | Пул |
 |--------|-----|
 | ZANO | WoolyPooly |
-| NEOX | 2Miners |
+| NEOX | RPlant |
 | NEXA | 2Miners |
 | EPIC | EpicMine |
 | BEAM | HeroMiners |
@@ -217,46 +214,27 @@ to:
 | KRGN | HimPool |
 | EVR | EVRPool |
 
+### 🛠️ Диагностика проблем
 
----
+Не работает конкретная монета? Можешь вручную проверить подключение к пулу перед тем как создавать issue — например, для NEOX через RPlant:
 
-## 🗂️ Bat файлы для ручного запуска майнеров
-
-В репозитории есть готовые `.bat` файлы для каждой монеты.
-
-> ⚠️ **Перед использованием** — открой файл в блокноте и замени `WALLET_ADDRESS` на свой адрес кошелька!
-
-| Файл | Монета | Майнер |
-|------|--------|--------|
-| `mine_ZANO.bat` | ZANO | T-Rex |
-| `mine_NEOX.bat` | NEOX | T-Rex |
-| `mine_NEXA.bat` | NEXA | lolMiner |
-| `mine_EPIC.bat` | EPIC | TT-Miner |
-| `mine_BEAM.bat` | BEAM | GMiner |
-| `mine_IRON.bat` | IRON | lolMiner |
-| `mine_KRGN.bat` | KRGN | T-Rex |
-| `mine_EVR.bat` | EVR | WildRig Multi |
-
-Пример — открой `mine_ZANO.bat` в блокноте и замени:
 ```
---user WALLET_ADDRESS.rig1
+t-rex.exe -a kawpow -o stratum+ssl://eu.rplant.xyz:17069 -u ТВОЙ_КОШЕЛЁК.rig1 -p x
 ```
-на:
-```
---user ZxD22Jbi5BF...твойадрес.rig1
-```
+
+Точный хост/порт для каждого пула можно найти на его сайте в разделе "Connect" / "How to start". Если майнер авторизуется и шары принимаются там, но не в Mining Control — пожалуйста, [создай issue](../../issues) и приложи `debug.log`.
 
 ---
 
 ## 📝 License / Лицензия
 
-MIT License — free to use, but keep the author mention.  
+MIT License — free to use, but keep the author mention.
 Свободное использование, но сохраняй упоминание автора.
 
 ---
 
 <div align="center">
 
-*Mining Control v1.0.1 · Dev fee 1% · Made with ❤️ by sekorg88*
+*Mining Control v1.0.2 · Dev fee 1% · Made with ❤️ by sekorg88*
 
 </div>
