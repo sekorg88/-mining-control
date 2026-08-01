@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Mining Control](https://img.shields.io/badge/version-1.0.2-00e5ff?style=for-the-badge)
+![Mining Control](https://img.shields.io/badge/version-1.0.3-00e5ff?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/platform-Windows-39ff14?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-bf5af2?style=for-the-badge)
 ![Dev Fee](https://img.shields.io/badge/dev%20fee-1%25-ffd60a?style=for-the-badge)
@@ -18,22 +18,17 @@
 
 ---
 
-## 🆕 What's new in v1.0.2 / Что нового в v1.0.2
+## 🆕 What's new in v1.0.3 / Что нового в v1.0.3
 
-- 🔧 **Fixed several broken pool endpoints** — KRGN, EVR, and NEXA balance stats were pointing at outdated/incorrect API hosts and have been corrected.
-- 🔀 **NEOX switched pools** — moved from a discontinued 2Miners endpoint to **RPlant**, with full automatic balance/hashrate stats.
-- 🔑 **EPIC automatic stats (optional)** — you can now link your own EpicMine API key/secret (Settings → EPIC API) to get live balance stats. Without it, EPIC still mines normally, just without auto-stats.
-- 🔴 **New-payout indicators** — each coin in the "Total" panel now shows a small pulsing dot when the pool actually sends you a new payout. It clears when you manually refresh.
-- 🔄 **Auto-refresh every minute** — pool balances now update automatically in the background, no need to click Refresh constantly.
+- 🔷 **Decred (DCR) support added** — new coin, mined via **SRBMiner-Multi** on the **Blake3** algorithm, pool **WoolyPooly** (PPLNS and SOLO both supported).
+- ⚖️ **PPLNS is now the default payout mode** for every coin — previously some coins defaulted to SOLO inconsistently.
+- 🎚️ **Fixed missing "Min. Profit Difference" buttons** (3% / 5% / 10%) in Settings — they had disappeared from the interface in a previous update.
 
 <br>
 
-- 🔧 **Исправлены несколько нерабочих эндпоинтов пулов** — статистика баланса KRGN, EVR и NEXA указывала на устаревшие/неверные API-хосты, теперь исправлено.
-- 🔀 **NEOX сменил пул** — переехал с закрытого эндпоинта 2Miners на **RPlant**, с полной автоматической статистикой баланса/хешрейта.
-- 🔑 **Автостатистика EPIC (опционально)** — теперь можно привязать свой личный API-ключ/секрет от EpicMine (Настройки → EPIC API) для получения баланса в реальном времени. Без ключа EPIC всё так же майнит нормально, просто без автостатистики.
-- 🔴 **Индикаторы новых начислений** — каждая монета в разделе "Итого" теперь показывает мигающую точку, когда пул реально прислал новую выплату. Гаснет при ручном обновлении.
-- 🔄 **Автообновление раз в минуту** — баланс пулов теперь обновляется сам в фоне, не нужно постоянно жать "Обновить".
-
+- 🔷 **Добавлена поддержка Decred (DCR)** — новая монета, майнится через **SRBMiner-Multi** на алгоритме **Blake3**, пул **WoolyPooly** (поддерживаются и PPLNS, и SOLO).
+- ⚖️ **PPLNS теперь стандартный режим выплат** для всех монет — раньше часть монет по умолчанию стояла на SOLO вразнобой.
+- 🎚️ **Починены пропавшие кнопки "Мин. разница доходности"** (3% / 5% / 10%) в настройках — пропали из интерфейса в одном из прошлых обновлений.
 
 ---
 
@@ -68,6 +63,7 @@ Download `MiningControl.exe` from [➡️ Releases](../../releases/latest)
 | **GMiner** | BEAM | [github.com/develsoftware/GMinerRelease](https://github.com/develsoftware/GMinerRelease/releases) |
 | **TT-Miner** | EPIC | [tradeproject.de](https://tradeproject.de/) |
 | **WildRig Multi** | EVR | [github.com/andru-kun/wildrig-multi](https://github.com/andru-kun/wildrig-multi/releases) |
+| **SRBMiner-Multi** | DCR | [github.com/doktor83/SRBMiner-Multi](https://github.com/doktor83/SRBMiner-Multi/releases) |
 
 #### Step 3 — MSI Afterburner (optional)
 Download from official site: [msi.com/Landing/afterburner](https://www.msi.com/Landing/afterburner/graphics-cards)
@@ -80,6 +76,7 @@ Download from official site: [msi.com/Landing/afterburner](https://www.msi.com/L
    📁 gminer\            ← GMiner
    📁 ttminer\           ← TT-Miner
    📁 wildrig\           ← WildRig Multi (for EVR)
+   📁 srbminer\          ← SRBMiner-Multi (for DCR)
    MiningControl.exe     ← Mining Control
    mining_config.json    ← auto-created on first run
    debug.log             ← logs
@@ -118,6 +115,7 @@ Download from official site: [msi.com/Landing/afterburner](https://www.msi.com/L
 | IRON | HeroMiners |
 | KRGN | HimPool |
 | EVR | EVRPool |
+| DCR | WoolyPooly |
 
 ### 🛠️ Troubleshooting
 
@@ -162,6 +160,7 @@ Each pool's exact host/port can be found on its own website's "Connect" / "How t
 | **GMiner** | BEAM | [github.com/develsoftware/GMinerRelease](https://github.com/develsoftware/GMinerRelease/releases) |
 | **TT-Miner** | EPIC | [tradeproject.de](https://tradeproject.de/) |
 | **WildRig Multi** | EVR | [github.com/andru-kun/wildrig-multi](https://github.com/andru-kun/wildrig-multi/releases) |
+| **SRBMiner-Multi** | DCR | [github.com/doktor83/SRBMiner-Multi](https://github.com/doktor83/SRBMiner-Multi/releases) |
 
 #### Шаг 3 — MSI Afterburner (опционально)
 Скачай с официального сайта: [msi.com/Landing/afterburner](https://www.msi.com/Landing/afterburner/graphics-cards)
@@ -174,6 +173,7 @@ Each pool's exact host/port can be found on its own website's "Connect" / "How t
    📁 gminer\            ← GMiner
    📁 ttminer\           ← TT-Miner
    📁 wildrig\           ← WildRig Multi (для EVR)
+   📁 srbminer\          ← SRBMiner-Multi (для DCR)
    MiningControl.exe     ← Mining Control
    mining_config.json    ← создаётся автоматически
    debug.log             ← логи
@@ -212,6 +212,7 @@ Each pool's exact host/port can be found on its own website's "Connect" / "How t
 | IRON | HeroMiners |
 | KRGN | HimPool |
 | EVR | EVRPool |
+| DCR | WoolyPooly |
 
 ### 🛠️ Диагностика проблем
 
@@ -234,6 +235,6 @@ MIT License — free to use, but keep the author mention.
 
 <div align="center">
 
-*Mining Control v1.0.2 · Dev fee 1% · Made with ❤️ by sekorg88*
+*Mining Control v1.0.3 · Dev fee 1% · Made with ❤️ by sekorg88*
 
 </div>
